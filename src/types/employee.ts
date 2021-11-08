@@ -1,7 +1,6 @@
 /**
- * 従業員情報を表すクラスです
+ * 従業員情報を表すクラスです.
  */
-
 export class Employee {
   constructor(
     private _id: number,

@@ -1,5 +1,5 @@
 /**
- * 管理者情報を表すクラスです
+ * 管理者情報を表すクラスです.
  */
 export class Administrator {
   constructor(
