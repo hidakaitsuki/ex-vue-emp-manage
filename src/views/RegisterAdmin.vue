@@ -75,12 +75,20 @@ import Vue from "vue";
 import Component from "vue-class-component";
 @Component
 export default class RegisterAdmin extends Vue {
+  // エラーメッセージ
   private errorMessage = "";
+  //   姓
   private lastName = "";
+  //   名
   private firstName = "";
+  //   メールアドレス
   private mailAddress = "";
+  //   パスワード
   private password = "";
 
+/**
+ * 管理者情報を登録する
+ */
   async registerAdmin(): Promise<void> {
     const response = await axios.post(
       "http://34.220.87.88:8080/ex-emp-api/insert",
