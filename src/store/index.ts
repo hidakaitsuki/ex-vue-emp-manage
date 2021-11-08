@@ -1,7 +1,6 @@
 /**
  * 従業員情報をもたせるstoreファイル.
  */
-
 import Vue from "vue";
 import Vuex from "vuex";
 import { Employee } from "../types/employee";
@@ -15,7 +14,7 @@ export default new Vuex.Store({
     employees: new Array<Employee>(),
   }, // end state
   /**
-   * @param getEmployeeList 従業員一覧情報をWebAPI から取得してmutationを呼び出す.
+   * @param getEmployeeList -従業員一覧情報をWebAPI から取得してmutationを呼び出す.
    */
   actions: {
     async getEmployeeList(context, payload) {
@@ -27,7 +26,7 @@ export default new Vuex.Store({
     },
   }, // end actions
   /**
-   * @param showEmployeeList 従業員一覧情報を作成してstateに格納する.
+   * @param showEmployeeList -従業員一覧情報を作成してstateに格納する.
    */
   mutations: {
     showEmployeeList(state, payload) {
