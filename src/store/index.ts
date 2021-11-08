@@ -30,7 +30,7 @@ export default new Vuex.Store({
         "http://34.220.87.88/ex-emp-api/employee/employees"
       );
       payload = responce.data;
-      context.commit("showEmoloyeeList", payload);
+      context.commit("showEmployeeList", payload);
     },
   }, // end actions
   mutations: {
