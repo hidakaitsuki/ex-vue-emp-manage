@@ -1,18 +1,6 @@
 <template>
   <div>
-    <div class="container">
-      <div class="header">
-        <div class="header-left">
-          <a href="login.html">
-            <img class="logo" src="img/header_logo.png" />
-          </a>
-        </div>
-
-        <div class="header-right">
-          <a href="registerAdmin.html">管理者登録</a>
-        </div>
-      </div>
-    </div>
+   
     <div class="container">
       <div class="row register-page">
         <div class="error">{{ errorMessage }}</div>
@@ -45,7 +33,7 @@
                 id="email"
                 type="email"
                 class="validate"
-                v-model="mailAddres"
+                v-model="mailAddress"
                 required
               />
               <label for="email">メールアドレス</label>
@@ -79,11 +67,7 @@
         </form>
       </div>
     </div>
-    <div class="container">
-      <div class="footer">
-        <div class="footer-center">©️ xxx Inc.</div>
-      </div>
-    </div>
+   
   </div>
 </template>
 
@@ -104,7 +88,7 @@ export default class RegisterAdmin extends Vue {
       "http://34.220.87.88:8080/ex-emp-api/insert",
       {
         name: this.lastName + " " + this.firstName,
-        mailAdress: this.mailAddress,
+        mailAddress: this.mailAddress,
         password: this.password,
       }
     );
