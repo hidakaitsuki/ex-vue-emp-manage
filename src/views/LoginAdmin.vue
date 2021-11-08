@@ -41,8 +41,8 @@
             <div class="row">
               <div class="input-field col s6 m6 l6">
                 <p class="margin medium-small">
-                  <router-lin to="/registerAdmin"
-                    >管理者登録はこちら</router-lin
+                  <router-link to="/registerAdmin"
+                    >管理者登録はこちら</router-link
                   >
                 </p>
               </div>
@@ -61,7 +61,7 @@ import Component from "vue-class-component";
 @Component
 export default class LoginAdmin extends Vue {
   // エラーメッセージ
-  private erroMessage = "";
+  private errorMessage = "";
   // メールアドレス
   private mailAddress = "";
   // パスワード
@@ -74,14 +74,14 @@ export default class LoginAdmin extends Vue {
     const response = await axios.post(
       "http://34.220.87.88:8080/ex-emp-api/login ",
       {
-        mailAdress: this.mailAddress,
+        mailAddress: this.mailAddress,
         password: this.mailAddress,
       }
     );
-    if (response.data.status === "success") {
+    if (response.data.status == "success") {
       this["$router"].push("/employeeList");
-    } else if (response.data.status === "error") {
-      this.erroMessage = response.data.message;
+    } else if (response.data.status == "error") {
+      this.errorMessage = response.data.message;
     }
   }
 }
