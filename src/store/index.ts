@@ -10,13 +10,21 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   strict: true,
   state: {
+    // 従業員数
     totalEmployeeCount: 0,
+    // 従業員一覧
     employees: new Array<Employee>(),
   }, // end state
-  /**
-   * @param getEmployeeList -従業員一覧情報をWebAPI から取得してmutationを呼び出す.
-   */
   actions: {
+    /**
+     * WebAPIから従業員情報を取得する.
+     *
+     * @remarks
+     * 従業員一覧情報をWebAPI から取得してmutationを呼び出す。
+     *
+     * @param context - コンテキストオブジェト
+     * @param payload - JSON形式の従業員情報
+     */
     async getEmployeeList(context, payload) {
       const responce = await axsios.get(
         "http://34.220.87.88/ex-emp-api/employee/employees"
@@ -25,10 +33,13 @@ export default new Vuex.Store({
       context.commit("showEmoloyeeList", payload);
     },
   }, // end actions
-  /**
-   * @param showEmployeeList -従業員一覧情報を作成してstateに格納する.
-   */
   mutations: {
+    /**
+     * 従業員数と従業員一覧をstateに格納する.
+     *
+     * @param state - ステートオブジェクト
+     * @param payload - JSON形式の従業員情報
+     */
     showEmployeeList(state, payload) {
       state.totalEmployeeCount = payload.totalEmployeeCount;
       for (const employee of payload.employees) {
@@ -51,18 +62,35 @@ export default new Vuex.Store({
       }
     },
   }, // end mutations
-  /**
-   * @param getEmployeeCount - 従業員数を返す.
-   * @param getEmployees - 従業員一覧を返す.
-   * @param getEmployeeById - IDから従業員を検索し返す.
-   */
+  // /**
+  //  * @param getEmployeeCount - 従業員数を返す.
+  //  * @param getEmployees - 従業員一覧を返す.
+  //  * @param getEmployeeById - IDから従業員を検索し返す.
+  //  */
   getters: {
+    /**
+     * 従業員数を返す.
+     *
+     * @param state - ステートオブジェクト
+     * @returns 従業員数
+     */
     getEmployeeCount(state) {
       return state.totalEmployeeCount;
     },
+    /**
+     *従業員情報を返す.
+     * @param state -ステートオブジェクト
+     * @returns 従業員
+     */
     getEmployees(state) {
       return state.employees;
     },
+    /**
+     * 入力されたIDの従業員情報を返す.
+     * 
+     * @param state ステートオブジェクト
+     * @returns 渡されたIDで絞り込む
+     */
     getEmployeeById(state) {
       return (id: number) => {
         return state.employees.filter((Employee) => (Employee.id = id))[0];

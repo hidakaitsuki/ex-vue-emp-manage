@@ -1,6 +1,5 @@
 <template>
   <div>
-   
     <div class="container">
       <div class="row register-page">
         <div class="error">{{ errorMessage }}</div>
@@ -67,7 +66,6 @@
         </form>
       </div>
     </div>
-   
   </div>
 </template>
 
