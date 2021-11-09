@@ -75,7 +75,7 @@ export default class LoginAdmin extends Vue {
       "http://34.221.70.66:8080/ex-emp-api/login ",
       {
         mailAddress: this.mailAddress,
-        password: this.mailAddress,
+        password: this.password,
       }
     );
     if (response.data.status == "success") {
