@@ -72,7 +72,7 @@ export default class LoginAdmin extends Vue {
    */
   async loginAdmin(): Promise<void> {
     const response = await axios.post(
-      "http://34.220.87.88:8080/ex-emp-api/login ",
+      "http://34.221.70.66:8080/ex-emp-api/login ",
       {
         mailAddress: this.mailAddress,
         password: this.mailAddress,

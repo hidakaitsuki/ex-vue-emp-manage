@@ -87,11 +87,11 @@ export default class RegisterAdmin extends Vue {
   private password = "";
 
 /**
- * 管理者情報を登録する
+ * 管理者情報を登録する.
  */
   async registerAdmin(): Promise<void> {
     const response = await axios.post(
-      "http://34.220.87.88:8080/ex-emp-api/insert",
+      "http://34.221.70.66:8080/ex-emp-api/insert",
       {
         name: this.lastName + " " + this.firstName,
         mailAddress: this.mailAddress,
