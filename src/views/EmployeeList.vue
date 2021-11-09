@@ -40,6 +40,7 @@ export default class EmployeeList extends Vue {
    * Vuexストアのアクション経由で非同期でWebAPI から従業員一覧を取得する.
    */
   created(): void {
+      
     this["$store"].dispatch("getEmployeeList");
   }
   /**

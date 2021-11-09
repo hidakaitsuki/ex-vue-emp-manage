@@ -42,24 +42,26 @@ export default new Vuex.Store({
      */
     showEmployeeList(state, payload) {
       state.totalEmployeeCount = payload.totalEmployeeCount;
-      for (const employee of payload.employees) {
-        state.employees.push(
-          new Employee(
-            employee.id,
-            employee.name,
-            employee.image,
-            employee.gender,
-            employee.hireDate,
-            employee.mailAddress,
-            employee.zipCode,
-            employee.address,
-            employee.telephone,
-            employee.salary,
-            employee.characteristics,
-            employee.dependentsCount
-          )
-        );
-      }
+      state.employees = payload.employees;
+      // ↑のでやることによって戻る押したときに再度追加されない
+      // for (const employee of payload.employees) {
+      //   state.employees.push(
+      //     new Employee(
+      //       employee.id,
+      //       employee.name,
+      //       employee.image,
+      //       employee.gender,
+      //       employee.hireDate,
+      //       employee.mailAddress,
+      //       employee.zipCode,
+      //       employee.address,
+      //       employee.telephone,
+      //       employee.salary,
+      //       employee.characteristics,
+      //       employee.dependentsCount
+      //     )
+      //   );
+      // }
     },
   }, // end mutations
   // /**
@@ -87,13 +89,13 @@ export default new Vuex.Store({
     },
     /**
      * 入力されたIDの従業員情報を返す.
-     * 
+     *
      * @param state ステートオブジェクト
      * @returns 渡されたIDで絞り込む
      */
     getEmployeeById(state) {
       return (id: number) => {
-        return state.employees.filter((Employee) => (Employee.id = id))[0];
+        return state.employees.filter((employee) => employee.id == id)[0];
       };
     },
   }, // end getters
